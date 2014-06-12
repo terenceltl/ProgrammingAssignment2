@@ -1,12 +1,19 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
+## This pair of functions work in conjunction to
+## allow saving computating time by caching the
+## the inversion of the matrix if it has been
+## calculated already. This is by taking advantage
+## of the scoping rules of the R language and how 
+## they can be manipulated to preserve state inside
+## of an R object. This is in turn achieved by using
+## the  <<- operator, which can be used to assign a
+## value to an object in an environment that is
+## different from the current environment.
 
 ## This makeCacheMatrix function creates a
 ## special matrix object that can cache
-## its own  matirx inversion, by taking
-## advantage of the  <<- operator
+## its own  matirx inversion. It contains the
+## functions to set/get the value of the matrix
+## and to set/get the value of the inverted matrix.
 
 makeCacheMatrix <- function(invertible = matrix()) {
   cachedinversion <- NULL
@@ -21,9 +28,6 @@ makeCacheMatrix <- function(invertible = matrix()) {
        setinversion = setinversion,
        getinversion = getinversion)  
 }
-
-
-## Write a short comment describing this function
 
 ## This cacheSolve function computes the inverse of
 ## the special "matrix" returned by makeCacheMatrix above.
